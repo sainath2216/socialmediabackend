@@ -6,16 +6,19 @@ const userRoutes = require('./routes/userRoutes');
 
 const bodyParser = require('body-parser');
 
-
-const cors = require('cors');
 const path = require('path')
 
 const app = express()
-
 const PORT = process.env.PORT || 4000;
-
 dotEnv.config();
-app.use(cors())
+
+const cors = require('cors');
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB connected successfully!"))
