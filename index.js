@@ -32,5 +32,4 @@ app.listen(PORT, () => {
 
 app.use('/', (req, res) => {
     res.send("<h1> Welcome to social media");
-}) 
-
+})

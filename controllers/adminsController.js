@@ -16,14 +16,14 @@ const adminsRegister = async(req, res) => {
         }
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const newAdmins = new Vendor({
+        const newAdmins = new Admins({
             username,
             email,
             password: hashedPassword
         });
         await newAdmins.save();
 
-        res.status(201).json({ message: "Vendor registered successfully" });
+        res.status(201).json({ message: "Admin registered successfully" });
         console.log('registered')
 
     } catch (error) {

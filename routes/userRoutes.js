@@ -1,6 +1,5 @@
 const express = require('express');
 const userController = require('../controllers/userController');
-const path = require("path")
 
 const router = express.Router();
 
@@ -16,5 +15,3 @@ router.get('/uploads/:imageName', (req, res) => {
 router.delete('/:userId', userController.deleteUserById);
 
 module.exports = router;
-
-
